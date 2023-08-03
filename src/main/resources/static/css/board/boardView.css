@@ -1,0 +1,227 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+*{
+    font-family: 'Pretendard';
+}
+
+.post-wrap {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post-wrap__box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.post-header {
+    margin-bottom: 10px;
+}
+
+.post-title {
+    margin-bottom: 5px;
+}
+
+.post-info {
+    margin-top: 10px;
+    color: #888;
+    font-size: 14px;
+}
+
+.post-content {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+    min-height: 800px;
+}
+
+.post-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.post-images a{
+    max-width: 23%;
+    display: inline;
+}
+
+.post-images img {
+    max-width: 100%;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* 버튼 스타일 */
+.btn-modify,
+.btn-remove,
+.btn-back {
+    font-size: 16px;
+    color: #00c7ae;
+    text-decoration: none;
+    margin-left: 20px;
+    border: 1px solid #00c7ae;
+    border-radius: 5px;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.btn-modify:hover,
+.btn-remove:hover,
+.btn-back:hover {
+    background-color: #00c7ae;
+    color: white;
+}
+
+/* ======== 리플 스타일 ======= */
+
+/* 댓글 작성 스타일 */
+.reply-wrap {
+    margin: 20px 0;
+}
+
+.reply-wrap__box {
+    margin: 20px 0;
+    border: 1px solid #ccc;
+}
+
+.reply-content__box {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+}
+
+#reply-content {
+    margin: 10px 0;
+    width: 100%;
+    resize: none;
+    border: none;
+    background-color: #f7f7f7;
+    height: 80px;
+    padding: 10px;
+}
+
+.reply-writer {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.reply-btn-wrap {
+    text-align: right;
+}
+
+.btn-reply {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    border: 1px solid #00c7ae;
+    padding: 7px;
+    cursor: pointer;
+    height: 40px;
+    background-color: #00c7ae;
+}
+
+.btn-reply:hover {
+    background-color: #00a792;
+}
+
+/* 댓글 목록 스타일 */
+.reply {
+    margin: 40px 0;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reply-box {
+    width: 95%;
+}
+
+.reply-box__writer {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.reply-box__content {
+    margin-bottom: 20px;
+    padding-left: 5px;
+}
+
+.reply-btns {
+    background-image: linear-gradient(transparent, transparent), url(https://ssl.pstatic.net/static/comic/comment_new/sp_comment.svg);
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+    background-position: -320px -96px;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 15px;
+    margin: 7px 0 0 13px;
+    cursor: pointer;
+}
+
+.reply-btn-box {
+    position: relative;
+}
+
+.reply-btns__box {
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 80px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #f7f7f7;
+}
+
+.reply-btns__box > div {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.reply-remove-btn {
+    border-bottom: 1px solid #888;
+}
+
+.none {
+    display: none;
+}
+
+/* 수정 처리 스타일 */
+.modify-box {
+    display: flex;
+}
+.modify-content {
+    width: 100%;
+    resize: none;
+    border-color: #ccc;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.modify-content-btn {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #00c7ae;
+    padding: 7px;
+    cursor: pointer;
+    height: 50px;
+    width: 80px;
+    margin-left: 10px;
+    background-color: #00c7ae;
+}
+
+.reply-time {
+    font-size: 10px;
+    color: #777777;
+    min-width: 50px;
+}

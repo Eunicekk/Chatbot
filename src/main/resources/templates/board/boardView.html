@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>게시물 상세보기</title>
+  <link rel="stylesheet" th:href="@{/css/board/board.css}" />
+  <link rel="stylesheet" th:href="@{/css/board/boardView.css}" />
+</head>
+<body>
+<header class="header" th:replace="fragment/header :: header"></header>
+<div class="container">
+  <h1 class="title">자유 게시판</h1>
+  <div class="post-wrap">
+    <div class="post-wrap__box">
+      <div class="post-header">
+        <h2 class="post-title" th:text="${board.boardTitle}"></h2>
+        <p class="post-info" th:text="'작성자: ' + ${board.userId} + ' | 작성일: ' + ${board.boardRegisterDate} + ' | 수정일: ' + ${board.boardUpdateDate}"></p>
+      </div>
+      <div class="post-content" th:text="${board.boardContent}">게시물 내용</div>
+      <div class="post-images">
+        <!-- 이미지 예시 -->
+<!--        <img src="example1.jpg" alt="첨부 이미지 1" />-->
+<!--        <img src="example2.jpg" alt="첨부 이미지 2" />-->
+        <!-- /이미지 예시 -->
+      </div>
+    </div>
+    <div class="btn-wrap">
+      <!--
+      th:block
+      타임리프 문법을 사용할 때 상위요소의 속성으로 사용하게 된다.
+      그런데 만약 적절한 상위요소가 없을 경우 새로운 상위요소를 만들게 되면 html 구조가 망가질 수 있다.
+      그러므로 타임리프에서 제공하는 block 요소를 사용하여 html에는 영향을 주지 않고 타임리프를 사용할 수 있도록 만든다.
+       -->
+      <th:block th:if="${session.userNumber == board.userNumber}">
+        <button type="button" class="btn-modify">수정</button>
+        <button type="button" class="btn-remove">삭제</button>
+      </th:block>
+      <input type="hidden" class="board-num" th:value="${board.boardNumber}">
+      <button type="button" class="btn-back">뒤로 가기</button>
+    </div>
+    <div class="reply-wrap">
+      <h3>댓글 작성</h3>
+      <div class="reply-wrap__box">
+        <div class="reply-content__box">
+          <div class="reply-writer">홍길동</div>
+          <textarea name="replyContent" id="reply-content" cols="30" rows="10"></textarea>
+        </div>
+        <div class="reply-btn-wrap">
+          <button type="button" class="btn-reply">작성 완료</button>
+        </div>
+      </div>
+
+      <!-- 댓글 리스트 -->
+      <div class="reply-list-wrap">
+        <!-- 리플 예시 -->
+<!--        <div class="reply">-->
+<!--          <div class="reply-box">-->
+<!--            <div class="reply-box__writer">김철수</div>-->
+<!--            <div class="reply-box__content">안녕하세요!</div>-->
+<!--          </div>-->
+<!--          <div class="reply-btn-box">-->
+<!--            <span class="reply-btns"></span>-->
+<!--            <div class="reply-btns__box none">-->
+<!--              <div class="reply-remove-btn">삭제</div>-->
+<!--              <div class="reply-modify-btn">수정</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          </div>-->
+<!--        </div>-->
+        <!-- /리플 예시 -->
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+<script th:inline="javascript"> // 타임리프 문법을 자바스크립트에서 사용하기 위한 설정
+  let loginNumber = [[${session.userNumber}]]; // 타임리프 문법은 [] 2개로 감싸줘야 한다.
+</script>
+<script type="module" th:src="@{/js/board/boardView.js}"></script>
+</body>
+</html>

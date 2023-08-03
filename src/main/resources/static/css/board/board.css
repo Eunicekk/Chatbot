@@ -1,0 +1,335 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard';
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav-item {
+    font-size: 16px;
+    color: #00c7ae;
+    text-decoration: none;
+    margin-left: 20px;
+    border: 1px solid #00c7ae;
+    border-radius: 5px;
+    padding: 7px;
+}
+
+.nav-item:hover {
+    background-color: #00c7ae;
+    color: white;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+    min-height: 1000px;
+}
+
+.title {
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 400px));
+    gap: 20px;
+    justify-content: center;
+}
+
+.board-item {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+.board-item-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.board-img-box {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.board-item-image:hover {
+    transform: scale(1.1);
+}
+
+.board-item-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.board-item-author {
+    font-size: 14px;
+    color: #fff;
+}
+
+.add-post-btn {
+    display: block;
+    width: 100px;
+    padding: 10px;
+    margin: 40px 0;
+    background-color: #00c7ae;
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-post-btn:hover {
+    background-color: #00a792;
+}
+
+.btn-wrap {
+    display: flex;
+    justify-content: right;
+}
+
+.board-item {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.board-item-text {
+    padding: 10px;
+}
+
+.board-item-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+    position: relative;
+}
+
+.board-img-box:hover .board-item-image {
+    transform: scale(1.1);
+}
+
+.board-item-info {
+    position: absolute;
+    justify-content: space-between;
+    color: #fff;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    padding: 10px;
+    visibility: hidden;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.board-img-box:hover .board-item-info {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+.like,
+.comment {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.like-count,
+.comment-count {
+    margin-left: 5px;
+}
+
+.board-item-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.board-item-author {
+    font-size: 14px;
+    color: #777;
+}
+
+/* 페이징 */
+.page-a {
+    text-decoration: none;
+    color: #00c7ae;
+}
+
+.page-box {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-num {
+    border: 1px solid #00c7ae;
+    width: 30px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.active,
+.page-num:hover {
+    background-color: #00c7ae;
+    color: white;
+}
+
+/* 채팅 버튼 */
+.chatbot-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #00c7ae;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* 채팅 창 */
+.chatbot {
+    display: none; /* 채팅 창을 기본적으로 숨깁니다 */
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.chatbot-header {
+    padding: 10px;
+    background-color: #00c7ae;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+.close-box {
+    text-align: right;
+}
+.chatbot-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.chatbot-body {
+    height: 78%;
+    padding: 10px;
+    overflow-y: auto; /* 스크롤이 가능하도록 설정 */
+}
+
+.chatbot-footer {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chatbot-send {
+    margin-left: 10px;
+    padding: 5px;
+    background-color: #00c7ae;
+    border: #00c7ae 1px solid;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#chatbot-input {
+    height: 28px;
+    padding-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.message {
+    /* border: black 1px solid; */
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.message-text {
+    margin: 0 10px 0 10px;
+    border: #00c7ae 1px solid;
+    min-height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    padding: 3px 5px;
+}
+
+.user-message {
+}
+
+.bot-message {
+    text-align: right;
+    justify-content: right;
+}
+
+.bot-message > .message-text {
+    background-color: #00c7ae;
+    color: white;
+}

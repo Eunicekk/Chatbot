@@ -1,0 +1,103 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+*{
+    font-family: 'Pretendard';
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type='text'],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 400px;
+}
+
+input[type='file'] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #00c7ae;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px 0 0 0;
+}
+
+.submit-btn:hover {
+    background-color: #00a792;
+}
+
+.form-wrap {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.file-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-wrap > li {
+    list-style-type: none;
+    width: 90px;
+    height: 90px;
+    margin: 0.5rem;
+    border: 0.0625rem dashed #e1e1e1;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.file-wrap > li:first-child {
+    position: relative;
+    cursor: pointer;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDM2djM2SDB6Ii8+PGcgc3Ryb2tlPSIjMDBDN0FFIiBzdHJva2Utd2lkdGg9IjEuNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNCA0KSI+PHBhdGggc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBkPSJNMTQgN3YxNG03LTdINyIvPjxjaXJjbGUgY3g9IjE0IiBjeT0iMTQiIHI9IjE0Ii8+PC9nPjwvZz48L3N2Zz4=)
+    no-repeat 50%;
+}
+
+.img-list {
+    cursor: default;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBzdHJva2U9IiNCNUI1QjUiIHN0cm9rZS13aWR0aD0iMS41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0IDQpIj48cmVjdCB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHJ4PSIzLjUiLz48Y2lyY2xlIGN4PSI4LjU1NiIgY3k9IjguNTU2IiByPSIyLjMzMyIvPjxwYXRoIGQ9Ik0yOCAxOC42NjdsLTcuNzc3LTcuNzc4TDMuMTExIDI4Ii8+PC9nPjxwYXRoIGQ9Ik0wIDBoMzZ2MzZIMHoiLz48L2c+PC9zdmc+)
+    no-repeat 50% #f2f2f2;
+    position: relative;
+}
+
+input[type='file'] {
+    cursor: pointer;
+}
+
+.x-box::after {
+    content: 'x';
+    background-color: #00c7ae;
+    color: white;
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: -5px;
+    right: -5px;
+    text-align: center;
+    line-height: 13px;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.FileMapper">
+    <insert id="insert">
+        INSERT INTO TAB_FILE(FILE_NUMBER, FILE_NAME, FILE_UPLOAD_PATH, FILE_UUID, BOARD_NUMBER)
+        VALUES (SE_FILE.NEXTVAL, #{fileName}, #{fileUploadPath}, #{fileUuid}, #{boardNumber})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM TAB_FILE
+        WHERE BOARD_NUMBER = #{boardNumber}
+    </delete>
+
+    <select id="selectList" resultType="fileDto">
+        SELECT FILE_NUMBER, FILE_NAME, FILE_UPLOAD_PATH, FILE_UUID, BOARD_NUMBER
+        FROM TAB_FILE
+        WHERE BOARD_NUMBER = #{boardNumber}
+    </select>
+
+    <select id="selectOldList" resultType="fileDto">
+        SELECT FILE_NUMBER, FILE_NAME, FILE_UPLOAD_PATH, FILE_UUID, BOARD_NUMBER
+        FROM TAB_FILE
+        WHERE FILE_UPLOAD_PATH = TO_CHAR(CURRENT_DATE - 1, 'YYYY/MM/DD')
+    </select>
+</mapper>

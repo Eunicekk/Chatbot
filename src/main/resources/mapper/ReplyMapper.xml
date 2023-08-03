@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.ReplyMapper">
+    <insert id="insert">
+        INSERT INTO TAB_REPLY (REPLY_NUMBER, REPLY_CONTENT, BOARD_NUMBER, USER_NUMBER)
+        VALUES (SE_REPLY.NEXTVAL, #{replyContent}, #{boardNumber}, #{userNumber})
+    </insert>
+
+    <select id="selectList" resultType="replyVo">
+        SELECT REPLY_NUMBER, REPLY_CONTENT, REPLY_REGISTER_DATE, REPLY_UPDATE_DATE, BOARD_NUMBER, U.USER_NUMBER, U.USER_ID
+        FROM TAB_USER U JOIN TAB_REPLY R
+        ON U.USER_NUMBER = R.USER_NUMBER
+        WHERE BOARD_NUMBER = #{boardNumber}
+        ORDER BY REPLY_NUMBER DESC
+    </select>
+
+    <select id="select" resultType="replyVo">
+        SELECT REPLY_NUMBER, REPLY_CONTENT, REPLY_REGISTER_DATE, REPLY_UPDATE_DATE, BOARD_NUMBER, U.USER_NUMBER, U.USER_ID
+        FROM TAB_USER U JOIN TAB_REPLY R
+        ON REPLY_NUMBER = #{replyNumber} AND R.USER_NUMBER = U.USER_NUMBER
+    </select>
+
+    <update id="update">
+        UPDATE TAB_REPLY
+        SET REPLY_CONTENT = #{replyContent}, REPLY_UPDATE_DATE = SYSDATE
+        WHERE REPLY_NUMBER = #{replyNumber}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TAB_REPLY
+        WHERE REPLY_NUMBER = #{replyNumber}
+    </delete>
+
+    <select id="selectListPage" resultType="replyVo">
+        SELECT REPLY_NUMBER, REPLY_CONTENT, REPLY_REGISTER_DATE, REPLY_UPDATE_DATE, BOARD_NUMBER,
+        USER_NUMBER, USER_ID
+        FROM (
+            SELECT ROWNUM RN, REPLY_NUMBER, REPLY_CONTENT, REPLY_REGISTER_DATE, REPLY_UPDATE_DATE, BOARD_NUMBER,
+            USER_NUMBER, USER_ID
+            FROM (
+                SELECT REPLY_NUMBER, REPLY_CONTENT, REPLY_REGISTER_DATE, REPLY_UPDATE_DATE, BOARD_NUMBER,
+                U.USER_NUMBER, U.USER_ID
+                FROM TAB_USER U JOIN TAB_REPLY R
+                ON U.USER_NUMBER = R.USER_NUMBER AND BOARD_NUMBER = #{boardNumber}
+                ORDER BY REPLY_NUMBER DESC
+            )
+            <![CDATA[
+            WHERE ROWNUM <= #{criteria.page} * #{criteria.amount}
+            ]]>
+        )
+        WHERE RN > (#{criteria.page} - 1) * #{criteria.amount}
+    </select>
+
+    <select id="selectTotal" resultType="_int">
+        SELECT COUNT(REPLY_NUMBER)
+        FROM TAB_REPLY
+        WHERE BOARD_NUMBER = #{boardNumber}
+    </select>
+</mapper>

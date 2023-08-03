@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.UserMapper">
+    <insert id="insert">
+        <selectKey keyProperty="userNumber" order="BEFORE" resultType="long">
+            SELECT SE_USER.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TAB_USER(USER_NUMBER, USER_ID, USER_PASSWORD, USER_GENDER, USER_EMAIL, USER_ADDRESS)
+        VALUES(#{userNumber}, #{userId}, #{userPassword}, #{userGender}, #{userEmail}, #{userAddress})
+    </insert>
+
+    <select id="selectUserNumber" resultType="long">
+        SELECT USER_NUMBER
+        FROM TAB_USER
+        WHERE USER_ID = #{userId} AND USER_PASSWORD = #{userPassword}
+    </select>
+</mapper>

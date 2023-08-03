@@ -1,0 +1,79 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+*{
+    font-family: 'Pretendard';
+}
+
+/* 추가된 코드 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #00c7ae;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px 0 0 0;
+}
+
+.submit-btn:hover {
+    background-color: #00a792;
+}
+
+.form-wrap {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.gender-wrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.gender-box {
+    border: 1px solid #00c7ae;
+    width: 45%;
+    height: 30px;
+    color: #00c7ae;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.gender-box:hover {
+    background-color: #00c7ae;
+    color: white;
+}
+
+.checked {
+    color: white;
+    background-color: #00c7ae;
+}
+
+input[type='radio'] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+/* 추가된 코드 끝 */
